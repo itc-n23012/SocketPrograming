@@ -24,7 +24,7 @@ def recv_msg(sock, chunk_len=1024):
 
 def main():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect(('127.0.0.1', 80))
+    client_socket.connect((IPaddress, 80))
     request_text = 'GET / HTTP/1.0\r\n\r\n'
     request_bytes = request_text.encode('ASCII')
     send_msg(client_socket, request_bytes)
@@ -33,6 +33,11 @@ def main():
     print(received_text)
     client_socket.close()
 
+IPaddress = input('IPアドレスを入力してください')
 
 if __name__ == '__main__':
     main()
+
+
+
+
